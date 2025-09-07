@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>🎉 Selamat Ulang Tahun 🎉</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #a8edea, #d0f4f7, #90e0ef, #caf0f8);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 55px;
+      color: #0077b6;
+      text-shadow: 0 0 10px #00b4d8, 0 0 20px #90e0ef, 0 0 40px #48cae4;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00b4d8; }
+      to { text-shadow: 0 0 25px #90e0ef, 0 0 50px #48cae4; }
+    }
+
+    p {
+      font-size: 20px;
+      color: #023e8a;
+      margin-bottom: 30px;
+    }
+
+    /* Tombol */
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #0077b6;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: background 0.3s;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .btn:hover { background: #023e8a; }
+
+    /* Konfeti */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      opacity: 0.7;
+      animation: fall linear forwards;
+      z-index: 1;
+    }
+    @keyframes fall {
+      to { transform: translateY(100vh) rotate(720deg); opacity: 0.9; }
+    }
+
+    /* Balon */
+    .balloon {
+      position: fixed;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, #4fc3f7, #0288d1);
+      border-radius: 50%;
+      animation: rise linear forwards;
+      cursor: pointer;
+    }
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 12px solid #0288d1;
+    }
+    @keyframes rise {
+      to { transform: translateY(-120vh); }
+    }
+
+    /* Kue */
+    .cake {
+      width: 120px;
+      height: 80px;
+      background: #ffb347;
+      margin: 20px auto;
+      border-radius: 10px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
+    .cake::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      width: 80px;
+      height: 20px;
+      background: #ff6961;
+      border-radius: 5px;
+    }
+    .candle {
+      position: absolute;
+      top: -40px;
+      left: 55px;
+      width: 10px;
+      height: 20px;
+      background: #fff;
+    }
+    .flame {
+      position: absolute;
+      top: -55px;
+      left: 58px;
+      width: 14px;
+      height: 14px;
+      background: radial-gradient(circle, yellow, orange);
+      border-radius: 50%;
+      animation: flicker 0.3s infinite alternate;
+    }
+    @keyframes flicker {
+      from { transform: scale(1); opacity: 1; }
+      to { transform: scale(1.2); opacity: 0.8; }
+    }
+
+    /* Kado */
+    .gift {
+      width: 100px;
+      height: 100px;
+      background: #00b4d8;
+      margin: 20px auto;
+      position: relative;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .gift::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 45px;
+      width: 10px;
+      height: 100%;
+      background: #ffeb3b;
+    }
+    .gift::after {
+      content: '';
+      position: absolute;
+      top: 45px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: #ffeb3b;
+    }
+
+    /* Boneka Pinguin (muncul dari kado) */
+    .penguin {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 80px;
+      background: #2c3e50;
+      border-radius: 50% 50% 40% 40%;
+      display: none;
+      animation: jump 1s ease;
+    }
+    .penguin::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 10px;
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 50%;
+    }
+    .penguin::after {
+      content: '';
+      position: absolute;
+      bottom: 10px;
+      left: 18px;
+      width: 25px;
+      height: 15px;
+      background: orange;
+      border-radius: 50%;
+    }
+    @keyframes jump {
+      0% { transform: translate(-50%, 50px) scale(0.5); opacity: 0; }
+      100% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎂 HAPPY BIRTHDAY CANTIK! 🎁</h1>
+  <p>uiss si cantik udah nyentuh angka 18 nih, gak apa lah lambat beberapa hari yang penting masih dibulan yang sama 😘 <br> 
+  jujur aja nih yah waktu hari dimana kamu chat bilang apa yang buat saya suka sama kamu itu sampai sekarang belum bisa jawab karena jawabannya belum saya dapat 😅 <br> 
+  akhir kata saya hanya mendoakan kamu agar tetap sehat, tetap bisa senyum, selalu berhati-hati dan juga dipermudah segala urusannya 💙✨</p>
+  
+  <!-- Kue -->
+  <div class="cake" onclick="toggleFlame()">
+    <div class="candle"></div>
+    <div class="flame" id="flame"></div>
+  </div>
+
+  <!-- Kado + penguin -->
+  <div class="gift" onclick="showPenguin()">
+    <div class="penguin" id="penguin"></div>
+  </div>
+
+  <!-- Tombol -->
+  <div>
+    <button class="btn" onclick="releaseBalloons()">🎈 Keluarkan Balon</button>
+    <a class="btn" href="https://youtu.be/81O-DZuAxjM?si=SRCPJRqkpJrFn8F3" target="_blank">
+      🎶 Putar Lagu 🎶
+    </a>
+  </div>
+
+  <script>
+    // Konfeti
+    function createConfetti() {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      document.body.appendChild(confetti);
+      const colors = ["#ff4081", "#ffeb3b", "#00b4d8", "#8e44ad", "#2ecc71"];
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.left = Math.random() * window.innerWidth + "px";
+      confetti.style.width = confetti.style.height = Math.random() * 8 + 5 + "px";
+      confetti.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      setTimeout(() => confetti.remove(), 5000);
+    }
+    setInterval(createConfetti, 400);
+
+    // Balon
+    function releaseBalloons() {
+      for (let i = 0; i < 5; i++) {
+        const balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+        balloon.style.left = Math.random() * window.innerWidth + "px";
+        balloon.style.background = `radial-gradient(circle at 30% 30%, hsl(${Math.random()*360},70%,60%), hsl(${Math.random()*360},80%,40%))`;
+        balloon.style.animationDuration = (Math.random() * 6 + 5) + "s";
+        document.body.appendChild(balloon);
+
+        balloon.addEventListener("click", () => {
+          balloon.style.transition = "transform 0.2s, opacity 0.2s";
+          balloon.style.transform = "scale(1.5)";
+          balloon.style.opacity = "0";
+          setTimeout(() => balloon.remove(), 200);
+        });
+
+        setTimeout(() => balloon.remove(), 8000);
+      }
+    }
+
+    // Interaksi kue (tiup lilin)
+    function toggleFlame() {
+      const flame = document.getElementById("flame");
+      flame.style.display = flame.style.display === "none" ? "block" : "none";
+    }
+
+    // Interaksi kado (keluar pinguin)
+    function showPenguin() {
+      const penguin = document.getElementById("penguin");
+      penguin.style.display = "block";
+    }
+  </script>
+</body>
+</html>
